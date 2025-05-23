@@ -15,8 +15,6 @@ import {
   type UUID,
   type Service,
 } from '@elizaos/core';
-import { sendCheckInScheduleForm } from '../forms/scheduleForm';
-import { sendCheckInReportForm } from '../forms/checkInForm';
 
 interface DiscordComponentInteraction {
   customId: string;
@@ -302,18 +300,7 @@ export const checkInFormatAction: Action = {
       });
       logger.info('Found existing config:', existingConfig);
 
-      // if (!existingConfig) {
-      //   logger.info('No existing report channel config found - sending report form first');
-      //   logger.info('Using server ID:', serverId);
-      //   await sendCheckInReportForm(callback, textChannels, {
-      //     serverId,
-      //     // serverName: String(message.content.serverName),
-      //   });
-      // } else {
-      //   logger.info('Found existing report channel config:', existingConfig);
-      //   logger.info(`Sending schedule form with ${textChannels.length} channels`);
-      //   await sendCheckInScheduleForm(callback, textChannels);
-      // }
+
 
       // Send message to user asking for check-in details
       logger.info('Sending text-based check-in setup message to user');
